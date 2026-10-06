@@ -29,7 +29,7 @@ const vehicleSchema = new mongoose.Schema(
     vehicleType: {
       type: String,
       required: true,
-      enum: ["sedan", "suv", "tempo-travell  er"],
+      enum: ["sedan", "suv", "tempo-traveller"],
       lowercase: true,
     },
     description: {
