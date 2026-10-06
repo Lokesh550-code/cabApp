@@ -29,7 +29,7 @@ const vehicleSchema = new mongoose.Schema(
     vehicleType: {
       type: String,
       required: true,
-      enum: ["sedan", "suv", "temp-travell  er"],
+      enum: ["sedan", "suv", "tempo-travell  er"],
       lowercase: true,
     },
     description: {
@@ -43,7 +43,7 @@ const vehicleSchema = new mongoose.Schema(
       min: [0, "Storage capacity of a car cannot be less than 0 liters"],
     },
     features: {
-      type: String,
+      type: [String],
       default: [],
     },
   },
