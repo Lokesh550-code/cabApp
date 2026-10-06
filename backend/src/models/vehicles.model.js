@@ -35,6 +35,7 @@ const vehicleSchema = new mongoose.Schema(
     description: {
       type: String,
       required: true,
+      trim: true,
     },
     luggageCapacity: {
       type: Number,
