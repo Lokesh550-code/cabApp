@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+:root {
+  --color-brand: #ffc400;
+  --color-brand-hover: #ebaf00;
+
+  --color-navy: #071e32;
+  --color-navy-dark: #041421;
+
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+
+  --color-text: #102235;
+  --color-text-muted: #64748b;
+
+  --color-border: #e2e8f0;
+
+  --color-success: #16a34a;
+  --color-danger: #dc2626;
+}
