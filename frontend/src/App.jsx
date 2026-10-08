@@ -1,6 +1,7 @@
 // import { useEffect } from "react";
 // import { checkHealth } from "../services/api";
 
+import Hero from "./components/hero/Hero";
 import Navbar from "./components/navbar/Navbar";
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
   // }, []);
   return <div className="w-screen bg-surface text-text">
     <Navbar />
+    <Hero />
   </div>;
 };
 
