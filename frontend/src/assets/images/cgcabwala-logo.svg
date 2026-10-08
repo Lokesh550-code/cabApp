@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">CGCABWALA Taxi Service</title>
+  <desc id="desc">CGCABWALA taxi service logo with a colorful location pin and yellow taxi.</desc>
+
+  <!-- Background -->
+  <rect width="1200" height="360" fill="#ffffff"/>
+
+  <!-- Location pin -->
+  <path d="M180 28
+           C91 28 34 96 34 170
+           C34 263 180 334 180 334
+           C180 334 326 263 326 170
+           C326 96 269 28 180 28Z"
+        fill="#18b96b"/>
+
+  <!-- Colored pin segments -->
+  <path d="M180 28
+           C122 28 75 61 51 111
+           L128 169
+           C141 145 158 131 180 126
+           C202 131 219 145 232 169
+           L309 111
+           C285 61 238 28 180 28Z"
+        fill="#ef3333"/>
+
+  <path d="M51 111
+           C40 130 34 149 34 170
+           C34 205 53 236 78 263
+           L128 169Z"
+        fill="#168df0"/>
+
+  <path d="M309 111
+           C320 130 326 149 326 170
+           C326 205 307 236 282 263
+           L232 169Z"
+        fill="#f7c514"/>
+
+  <!-- Dark center -->
+  <circle cx="180" cy="170" r="86" fill="#071e32"/>
+
+  <!-- Taxi -->
+  <g transform="translate(78 105)">
+    <!-- taxi body -->
+    <path d="M18 104
+             L31 67
+             C36 53 48 43 62 40
+             L91 33
+             L108 8
+             C111 4 116 2 121 2
+             L161 2
+             C166 2 171 4 174 8
+             L191 33
+             L220 40
+             C234 43 246 53 251 67
+             L264 104
+             L264 133
+             C264 143 256 151 246 151
+             L36 151
+             C26 151 18 143 18 133Z"
+          fill="#ffc400" stroke="#ffffff" stroke-width="6" stroke-linejoin="round"/>
+
+    <!-- windows -->
+    <path d="M96 38 L113 13 L159 13 L176 38Z"
+          fill="#e9f2f7" stroke="#071e32" stroke-width="5"/>
+    <path d="M77 42 L96 38 L105 17 L60 42Z"
+          fill="#dbe8ef" stroke="#071e32" stroke-width="5"/>
+    <path d="M180 38 L163 13 L177 38 L221 46 L211 43Z"
+          fill="#dbe8ef" stroke="#071e32" stroke-width="5"/>
+
+    <!-- windshield divider -->
+    <path d="M136 14 L136 39" stroke="#071e32" stroke-width="5"/>
+
+    <!-- taxi sign -->
+    <rect x="119" y="-8" width="46" height="15" rx="3" fill="#ffc400" stroke="#ffffff" stroke-width="3"/>
+
+    <!-- headlights -->
+    <rect x="25" y="91" width="37" height="17" rx="6" fill="#f5f8fa" stroke="#071e32" stroke-width="4"/>
+    <rect x="220" y="91" width="37" height="17" rx="6" fill="#f5f8fa" stroke="#071e32" stroke-width="4"/>
+
+    <!-- grille / bumper -->
+    <rect x="75" y="119" width="132" height="17" rx="8" fill="#071e32"/>
+    <rect x="96" y="123" width="90" height="5" rx="2.5" fill="#ffc400"/>
+
+    <!-- wheels -->
+    <circle cx="67" cy="143" r="24" fill="#071e32"/>
+    <circle cx="67" cy="143" r="11" fill="#ffc400"/>
+    <circle cx="215" cy="143" r="24" fill="#071e32"/>
+    <circle cx="215" cy="143" r="11" fill="#ffc400"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="365" y="170"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="92"
+        font-weight="800"
+        letter-spacing="-3"
+        fill="#071e32">CGCABWALA</text>
+
+  <!-- Tagline -->
+  <text x="373" y="232"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="31"
+        font-weight="700"
+        letter-spacing="14"
+        fill="#eeb600">TAXI SERVICE</text>
+</svg>

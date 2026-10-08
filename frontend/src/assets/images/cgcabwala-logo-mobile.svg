@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" role="img" aria-labelledby="title desc">
+  <title id="title">CGCABWALA Taxi Service logo mark</title>
+  <desc id="desc">Colorful location pin containing a yellow taxi.</desc>
+
+  <!-- Multicolor location pin -->
+  <path d="M180 16C92 16 24 82 24 166c0 91 156 178 156 178s156-87 156-178C336 82 268 16 180 16Z" fill="#50A158"/>
+  <path d="M180 16c-52 0-98 25-128 65l78 59c12-17 29-28 50-28s38 11 50 28l78-59c-30-40-76-65-128-65Z" fill="#DD4F3E"/>
+  <path d="M52 81c-18 25-28 54-28 85 0 38 18 70 43 99l63-125L52 81Z" fill="#4384EF"/>
+  <path d="M308 81l-78 59 63 125c25-29 43-61 43-99 0-31-10-60-28-85Z" fill="#F0C54B"/>
+
+  <!-- Dark center -->
+  <circle cx="180" cy="166" r="91" fill="#2D3134"/>
+
+  <!-- Taxi body -->
+  <path d="M77 207l12-38c5-15 17-25 32-29l30-7 17-25c3-5 8-7 14-7h36c6 0 11 2 14 7l17 25 30 7c15 4 27 14 32 29l12 38v37c0 11-9 20-20 20H97c-11 0-20-9-20-20Z" fill="#F0C54B" stroke="#2D3134" stroke-width="6" stroke-linejoin="round"/>
+
+  <!-- Windows -->
+  <path d="M126 132l19-26h70l19 26-16 4h-76Z" fill="#fff" stroke="#2D3134" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M111 137l15-5 19-26h-48c-10 3-17 9-21 18l-5 13Z" fill="#fff" stroke="#2D3134" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M236 132l-19-26h25l26 7c10 3 17 9 21 18l4 12-25-7Z" fill="#fff" stroke="#2D3134" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M180 106v29" stroke="#2D3134" stroke-width="5"/>
+
+  <!-- Taxi roof sign -->
+  <rect x="164" y="96" width="32" height="13" rx="3" fill="#F0C54B" stroke="#fff" stroke-width="3"/>
+
+  <!-- Front fascia -->
+  <path d="M83 178c17-5 36-8 55-8h84c22 0 43 3 55 8l-13 38H96Z" fill="#F0C54B"/>
+  <path d="M105 191c20-7 43-10 75-10s55 3 75 10c-8 14-18 21-31 22h-88c-13-1-23-8-31-22Z" fill="#2D3134"/>
+  <path d="M91 171h43l-3 22H85Z" fill="#fff" stroke="#2D3134" stroke-width="4"/>
+  <path d="M226 171h43l6 22h-52Z" fill="#fff" stroke="#2D3134" stroke-width="4"/>
+
+  <!-- Front bumper / grille -->
+  <path d="M112 224h136c-4 9-12 14-23 14h-90c-11 0-19-5-23-14Z" fill="#2D3134"/>
+  <path d="M132 235h96" stroke="#F0C54B" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Side body highlight -->
+  <path d="M247 176h52l11 31h-67Z" fill="#F0C54B"/>
+  <path d="M251 181h54" stroke="#fff" stroke-width="5" opacity=".9"/>
+
+  <!-- Wheels -->
+  <g>
+    <ellipse cx="113" cy="245" rx="25" ry="31" fill="#2D3134"/>
+    <ellipse cx="113" cy="245" rx="11" ry="17" fill="#F0C54B"/>
+    <ellipse cx="269" cy="245" rx="25" ry="31" fill="#2D3134"/>
+    <ellipse cx="269" cy="245" rx="11" ry="17" fill="#F0C54B"/>
+  </g>
+
+  <!-- Lower bumper -->
+  <path d="M91 255h196c-8 9-18 13-31 13H122c-13 0-23-4-31-13Z" fill="#2D3134"/>
+  <path d="M133 261h112" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+</svg>
