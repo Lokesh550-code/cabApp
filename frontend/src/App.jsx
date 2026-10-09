@@ -4,6 +4,7 @@
 import BookingWidget from "./components/bookingWidget/BookingWidget";
 import Hero from "./components/hero/Hero";
 import Navbar from "./components/navbar/Navbar";
+import ServiceWidget from "./components/servicesWidget/ServiceWidget";
 import TrustWidget from "./components/trustWidget/TrustWidget";
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
     <Hero />
     <BookingWidget />
     <TrustWidget />
+    <ServiceWidget />
   </div>;
 };
 
