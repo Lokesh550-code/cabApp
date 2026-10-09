@@ -13,11 +13,11 @@ const Hero = () => {
         </p>
 
         <div className="mt-3 flex gap-4">
-          <button className="text-xs lg:text-md border px-1 py-1 text-text bg-surface hover:text-surface hover:bg-text active:text-brand active:bg-black active:border-surface rounded font-semibold hover:cursor-pointer transition">
+          <button className="text-sm md:text-md px-3 py-2 text-text bg-brand hover:bg-brand-hover active:text-brand active:bg-black rounded font-semibold hover:cursor-pointer transition">
             Book a Ride
           </button>
           <button className=" hover:text-surface hover:bg-text active:text-brand active:bg-black active:border-surface rounded font-semibold hover:cursor-pointer transition"></button>
-          <p className="text-xs lg:text-md px-1 py-1 font-semibold text-text  bg-surface">
+          <p className="text-sm md:text-md px-1 py-1 font-semibold text-text  bg-surface">
             Call Us: +91 9XXXXXXX4
           </p>
         </div>

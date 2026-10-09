@@ -4,6 +4,7 @@
 import BookingWidget from "./components/bookingWidget/BookingWidget";
 import Hero from "./components/hero/Hero";
 import Navbar from "./components/navbar/Navbar";
+import TrustWidget from "./components/trustWidget/TrustWidget";
 
 const App = () => {
   // useEffect(() => {
@@ -22,6 +23,7 @@ const App = () => {
     <Navbar />
     <Hero />
     <BookingWidget />
+    <TrustWidget />
   </div>;
 };
 
