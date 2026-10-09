@@ -46,7 +46,7 @@ const ServiceWidget = () => {
         comfortable taxi servies for all your travel needs in Chhattishgarh and
         beyond.
       </p>
-      <div className="w-full flex flex-wrap justify-center gap-4 py-4">
+      <div className="w-full flex flex-wrap justify-center lg:justify-between gap-4 py-4">
         {services.map(elem => {
           return <ServiceCard elem={elem} key={elem.id}/>
         })}

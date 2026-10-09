@@ -14,10 +14,10 @@ const TrustCard = ({ elem }) => {
           <Phone color="#102235" size={32} />
         )}
       </div>
-      <p className="text-sm md:text-md text-text-muted mb-1 font-semibold">
+      <p className="text-sm md:text-md mb-1 font-semibold">
         {elem.title}
       </p>
-      <p className="text-sm leading-[0.8] text-center font-[550] mb-2 hidden lg:block">
+      <p className="text-sm leading-[0.9] text-text-muted text-center font-[550] mb-2 hidden lg:block">
         {elem.description}
       </p>
     </div>
