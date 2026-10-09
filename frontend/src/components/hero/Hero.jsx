@@ -1,14 +1,14 @@
 const Hero = () => {
   return (
-    <div className="h-96 w-full md:flex">
-      <div className="h-1/2 w-full px-12 py-6 flex flex-col justify-center items-start lg:h-full lg:w-1/2">
+    <div className="lg:h-96 h-80 w-full md:flex">
+      <div className="h-1/2 w-full px-6 md:px-12 py-6 flex flex-col justify-center items-start md:h-full md:w-1/2">
         <h1 className="select-none text-lg lg:text-4xl font-display text-text">
           YOUR RIDE.
         </h1>
         <h2 className="select-none text-xl lg:text-5xl font-display text-brand">
           OUR RESPONSIBILITY.
         </h2>
-        <p className="text-xs md:text-sm mt-3 font-semibold">
+        <p className="text-xs text-text-muted md:text-sm mt-3 font-semibold">
           Reliable taxi service, across Chhattishgarh.
         </p>
 
@@ -22,7 +22,7 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      <div className="h-1/2 w-full px-12 py-6 lg:h-full lg:w-1/2">
+      <div className="h-1/2 w-full px-6 md:px-12 md:h-full md:w-1/2">
         <div className="h-full w-full bg-sky-200"></div>
       </div>
     </div>

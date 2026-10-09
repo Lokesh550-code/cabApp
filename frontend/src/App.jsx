@@ -1,6 +1,7 @@
 // import { useEffect } from "react";
 // import { checkHealth } from "../services/api";
 
+import BookingWidget from "./components/bookingWidget/BookingWidget";
 import Hero from "./components/hero/Hero";
 import Navbar from "./components/navbar/Navbar";
 
@@ -17,9 +18,10 @@ const App = () => {
 
   //   runCheckHealth();
   // }, []);
-  return <div className="w-screen bg-surface text-text">
+  return <div className="w-full min-w-0 bg-surface text-text">
     <Navbar />
     <Hero />
+    <BookingWidget />
   </div>;
 };
 
