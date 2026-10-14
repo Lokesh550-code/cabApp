@@ -5,3 +5,5 @@ const asyncHandler = (fn) => {
       .catch((error) => next(error));
   };
 };
+
+export default asyncHandler;
