@@ -1,4 +1,4 @@
-import ReasonCard from "./WhyChooseUs.jsx";
+import ReasonCard from "./ReasonCard.jsx"
 
 const reasons = [
   {
