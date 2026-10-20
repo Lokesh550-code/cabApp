@@ -10,9 +10,9 @@ const Navbar = () => {
             <img className="h-full hidden py-2 sm:block" src={logoDesktop} alt="logo" />
             <img className="h-full py-3 block sm:hidden" src={logoMobile} alt="logo" />
             <div className="hidden md:flex gap-3 font-bold">
+                <a className="hover:text-text-muted active:text-black active:border-black hover:translate-x-0.5 border-b-2 border-surface hover:border-text-muted text-sm md:text-md transition" href="">Home</a>
                 <a className="hover:text-text-muted active:text-black active:border-black hover:translate-x-0.5 border-b-2 border-surface hover:border-text-muted text-sm md:text-md transition" href="">Services</a>
                 <a className="hover:text-text-muted active:text-black active:border-black hover:translate-x-0.5 border-b-2 border-surface hover:border-text-muted text-sm md:text-md transition" href="">Fleet</a>
-                <a className="hover:text-text-muted active:text-black active:border-black hover:translate-x-0.5 border-b-2 border-surface hover:border-text-muted text-sm md:text-md transition" href="">Routes</a>
                 <a className="hover:text-text-muted active:text-black active:border-black hover:translate-x-0.5 border-b-2 border-surface hover:border-text-muted text-sm md:text-md transition" href="">About</a>
             </div>
             <button onClick={() => {setIsActive(prev => !prev)}} className="md:hidden text-md">
@@ -20,9 +20,9 @@ const Navbar = () => {
             </button>
         </div>
         <div className={isActive? "flex flex-col gap-2 font-bold w-full": "hidden"}>
+                <a className="hover:text-text-muted active:text-black active:border-black hover:translate-x-0.5 text-sm md:text-md transition" href="">Home</a>
                 <a className="hover:text-text-muted active:text-black active:border-black hover:translate-x-0.5 text-sm md:text-md transition" href="">Services</a>
                 <a className="hover:text-text-muted active:text-black active:border-black hover:translate-x-0.5 text-sm md:text-md transition" href="">Fleet</a>
-                <a className="hover:text-text-muted active:text-black active:border-black hover:translate-x-0.5 text-sm md:text-md transition" href="">Routes</a>
                 <a className="hover:text-text-muted active:text-black active:border-black hover:translate-x-0.5 text-sm md:text-md transition" href="">About</a>
                 <div className="w-1/2 border-t border-text"></div>
                 <a className="hover:text-text-muted active:text-black active:border-black hover:translate-x-0.5 text-sm md:text-md transition" href="">Book a Ride</a>
