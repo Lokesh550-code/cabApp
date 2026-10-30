@@ -1,12 +1,13 @@
+import ApiError from "../utils/ApiError.js";
 import bookingModel from "../models/bookings.model";
 
-// Fetches the booking on the
+// Fetches the bookings
 export const getBookingsController = async (req, res, next) => {
   try {
     const { page, limit } = req.validated.query ?? 10;
 
     const skip = (page - 1) * limit;
-    const bookings = await Promise.all([
+    const [bookings, totalBookings] = await Promise.all([
       bookingModel
         .find()
         .sort({ createdAt: -1, customerName: -1 })
@@ -15,14 +16,33 @@ export const getBookingsController = async (req, res, next) => {
       bookingModel.countDocuments(),
     ]);
 
+    const totalPages = Math.ceil(totalBookings / limit);
+
     res.status(200).json({
       message: "Fetched bookings successfully",
       status: true,
       bookings,
       pagination: {
         page,
+        totalBookings,
+        totalPages,
       },
     });
+  } catch (error) {
+    next(error);
+  }
+};
+
+// Fetch a single booking
+export const getBookingController = async (req, res, next) => {
+  try {
+    const bookingId = req.params.id;
+
+    const booking = await bookingModel.findById(bookingId);
+
+    if (!booking) {
+      throw new ApiError(404, "Booking not found");
+    }
   } catch (error) {
     next(error);
   }
