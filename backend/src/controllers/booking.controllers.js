@@ -71,10 +71,6 @@ export const createBooking = async (req, res, next) => {
       service,
     });
 
-    if (!booking) {
-      throw new ApiError(500, "Booking failed");
-    }
-
     res
       .status(201)
       .json({ message: "Booking successful", success: true, booking });
