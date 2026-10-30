@@ -47,3 +47,38 @@ export const getBookingController = async (req, res, next) => {
     next(error);
   }
 };
+
+// creating a booking
+export const createBooking = async (req, res, next) => {
+  try {
+    const {
+      customerName,
+      mobileNumber,
+      message,
+      pickupLocation,
+      dropLocation,
+      status,
+      service,
+    } = req.validated.body;
+
+    const booking = await bookingModel.create({
+      customerName,
+      mobileNumber,
+      message,
+      pickupLocation,
+      dropLocation,
+      status,
+      service,
+    });
+
+    if (!booking) {
+      throw new ApiError(500, "Booking failed");
+    }
+
+    res
+      .status(201)
+      .json({ message: "Booking successful", success: true, booking });
+  } catch (error) {
+    next(error);
+  }
+};

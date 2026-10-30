@@ -1,5 +1,6 @@
 import express from "express";
 import {
+  createBooking,
   getBookingController,
   getBookingsController,
 } from "../controllers/booking.controllers.js";
@@ -10,5 +11,7 @@ const bookingRouter = express.Router();
 bookingRouter.get("/", getBookingsController);
 
 bookingRouter.get("/:id", getBookingController);
+
+bookingRouter.post("/", createBooking);
 
 export default bookingRouter;
