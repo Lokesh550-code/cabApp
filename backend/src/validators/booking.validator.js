@@ -1,12 +1,9 @@
 import { z } from "zod";
-import { ObjecId } from "mongoose";
+import { ObjectId } from "mongoose";
 
 export const createBookingSchema = z.strictObject({
   customerName: z.string().trim().min(6),
-  mobileNumber: z
-    .coerce()
-    .string()
-    .regex(/^[6-9]\d{9}$/),
+  mobileNumber: z.coerce.string().regex(/^[6-9]\d{9}$/),
   message: z.string().trim().optional(),
   pickupLocation: z.string().trim(),
   dropLocation: z.string().trim(),
@@ -27,8 +24,7 @@ export const createBookingSchema = z.strictObject({
 export const updateBookingSchema = z
   .strictObject({
     customerName: z.string().trim().min(6).optional(),
-    mobileNumber: z
-      .coerce()
+    mobileNumber: z.coerce
       .string()
       .trim()
       .regex(/^[6-9]\d{9}$/)

@@ -1,5 +1,5 @@
 import ApiError from "../utils/ApiError.js";
-import bookingModel from "../models/bookings.model";
+import bookingModel from "../models/bookings.model.js";
 
 // Fetches all bookings
 export const getBookingsController = async (req, res, next) => {
