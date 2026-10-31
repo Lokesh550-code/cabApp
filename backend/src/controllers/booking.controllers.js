@@ -21,16 +21,7 @@ export const getBookings = async (req, res, next) => {
     res.status(200).json({
       message: "Fetched bookings successfully",
       success: true,
-      bookings: {
-        customerName: bookings.customerName,
-        mobileNumber: bookings.mobileNumber,
-        message: bookings.message,
-        pickupLocation: bookings.pickupLocation,
-        dropLocation: bookings.dropLocation,
-        status: bookings.status,
-        service: bookings.service,
-        createdAt: bookings.createdAt,
-      },
+      bookings,
       pagination: {
         page,
         totalBookings,
