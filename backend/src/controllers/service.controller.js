@@ -1,4 +1,6 @@
+import { success } from "zod";
 import serviceModel from "../models/services.model.js";
+import ApiError from "../utils/ApiError.js";
 
 export const getServices = async (req, res, next) => {
   try {
@@ -22,7 +24,7 @@ export const getServices = async (req, res, next) => {
       success: true,
       services,
       pagination: {
-        pages,
+        page,
         totalPages,
         totalServices,
       },
@@ -31,7 +33,27 @@ export const getServices = async (req, res, next) => {
     next(error);
   }
 };
-export const getService = async (req, res, next) => {};
+export const getService = async (req, res, next) => {
+  try {
+    const serviceId = req.params.id;
+
+    const service = await serviceModel.findById(serviceId);
+
+    if (!service) {
+      throw new ApiError(404, "No service found");
+    }
+
+    res
+      .status(200)
+      .json({
+        message: "Fetched service successfully",
+        success: true,
+        service,
+      });
+  } catch (error) {
+    next(error);
+  }
+};
 export const createServices = async (req, res, next) => {};
 export const updateServices = async (req, res, next) => {};
 export const deleteServices = async (req, res, next) => {};
