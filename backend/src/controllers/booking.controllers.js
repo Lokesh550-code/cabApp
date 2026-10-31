@@ -78,3 +78,38 @@ export const createBooking = async (req, res, next) => {
     next(error);
   }
 };
+
+// update a booking
+
+export const updateBooking = async (req, res, next) => {
+  try {
+    const update = req.validated.body;
+    const bookingId = req.params.id;
+
+    const updatedBooking = await bookingModel.updateOne(
+      { _id: bookingId },
+      { $set: update },
+      { returnDocumnet: "after" },
+    );
+
+    if (!updatedBooking) {
+      throw new ApiError(404, "Booking not found");
+    }
+
+    res.status(200).json({
+      message: "Booking updated successfully",
+      updatedBooking: {
+        customerName: updatedBooking.customerName,
+        mobileNumber: updatedBooking.mobileNumber,
+        message: updatedBooking.message,
+        pickupLocation: updateBooking.pickupLocation,
+        dropLocation: updatedBooking.dropLocation,
+        status: updatedBooking.status,
+        service: updatedBooking.service,
+        createdAt: updatedBooking.createdAt,
+      },
+    });
+  } catch (error) {
+    next(error);
+  }
+};

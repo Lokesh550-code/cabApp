@@ -14,3 +14,5 @@ export const createBookingSchema = strictObject({
     .default("pending"),
   service: z.string().trim(),
 });
+
+export const updateBookingSchema = strictObject({});

@@ -3,7 +3,13 @@ import {
   createBooking,
   getBookingController,
   getBookingsController,
+  updateBooking,
 } from "../controllers/booking.controllers.js";
+import validate from "../middlewares/validation.middleware.js";
+import {
+  createBookingSchema,
+  updateBookingSchema,
+} from "../validators/booking.validator.js";
 
 const bookingRouter = express.Router();
 
@@ -12,6 +18,8 @@ bookingRouter.get("/", getBookingsController);
 
 bookingRouter.get("/:id", getBookingController);
 
-bookingRouter.post("/", createBooking);
+bookingRouter.post("/", validate(createBookingSchema, "body"), createBooking);
+
+bookingRouter.patch("/:id", validate(updateBookingSchema), updateBooking);
 
 export default bookingRouter;
