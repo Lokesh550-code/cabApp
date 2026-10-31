@@ -4,7 +4,7 @@ import bookingModel from "../models/bookings.model.js";
 // Fetches all bookings
 export const getBookingsController = async (req, res, next) => {
   try {
-    const { page, limit } = req.validated.query ?? 10;
+    const { page, limit } = req.validated.query;
 
     const skip = (page - 1) * limit;
     const [bookings, totalBookings] = await Promise.all([
@@ -20,8 +20,17 @@ export const getBookingsController = async (req, res, next) => {
 
     res.status(200).json({
       message: "Fetched bookings successfully",
-      status: true,
-      bookings,
+      success: true,
+      bookings: {
+        customerName: bookings.customerName,
+        mobileNumber: bookings.mobileNumber,
+        message: bookings.message,
+        pickupLocation: bookings.pickupLocation,
+        dropLocation: bookings.dropLocation,
+        status: bookings.status,
+        service: bookings.service,
+        createdAt: bookings.createdAt,
+      },
       pagination: {
         page,
         totalBookings,
@@ -43,6 +52,21 @@ export const getBookingController = async (req, res, next) => {
     if (!booking) {
       throw new ApiError(404, "Booking not found");
     }
+
+    res.status(200).json({
+      message: "Fetched booking successfully",
+      success: true,
+      booking: {
+        customerName: booking.customerName,
+        mobileNumber: booking.mobileNumber,
+        message: booking.message,
+        pickupLocation: booking.pickupLocation,
+        dropLocation: booking.dropLocation,
+        status: booking.status,
+        service: booking.service,
+        createdAt: booking.createdAt,
+      },
+    });
   } catch (error) {
     next(error);
   }
@@ -71,9 +95,20 @@ export const createBooking = async (req, res, next) => {
       service,
     });
 
-    res
-      .status(201)
-      .json({ message: "Booking successful", success: true, booking });
+    res.status(201).json({
+      message: "Booking successful",
+      success: true,
+      booking: {
+        customerName: booking.customerName,
+        mobileNumber: booking.mobileNumber,
+        message: booking.message,
+        pickupLocation: booking.pickupLocation,
+        dropLocation: booking.dropLocation,
+        status: booking.status,
+        service: booking.service,
+        createdAt: booking.createdAt,
+      },
+    });
   } catch (error) {
     next(error);
   }
