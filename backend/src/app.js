@@ -1,6 +1,7 @@
 import express from "express";
 import bookingRouter from "./routes/booking.routes.js";
 import errorHandler from "./middlewares/errorHandler.middleware.js";
+import serviceRouter from "./routes/services.routes.js";
 
 const app = express();
 
@@ -11,6 +12,8 @@ app.get("/api/health", (req, res) => {
 });
 
 app.use("/api/booking", bookingRouter);
+
+app.use("/api/service", serviceRouter);
 
 app.use(errorHandler);
 export default app;
