@@ -1,7 +1,7 @@
 import ApiError from "../utils/ApiError.js";
 import bookingModel from "../models/bookings.model";
 
-// Fetches the bookings
+// Fetches all bookings
 export const getBookingsController = async (req, res, next) => {
   try {
     const { page, limit } = req.validated.query ?? 10;
@@ -80,16 +80,15 @@ export const createBooking = async (req, res, next) => {
 };
 
 // update a booking
-
 export const updateBooking = async (req, res, next) => {
   try {
     const update = req.validated.body;
     const bookingId = req.params.id;
 
-    const updatedBooking = await bookingModel.updateOne(
+    const updatedBooking = await bookingModel.findOneAndUpdate(
       { _id: bookingId },
       { $set: update },
-      { returnDocumnet: "after" },
+      { returnDocument: "after" },
     );
 
     if (!updatedBooking) {
@@ -102,11 +101,43 @@ export const updateBooking = async (req, res, next) => {
         customerName: updatedBooking.customerName,
         mobileNumber: updatedBooking.mobileNumber,
         message: updatedBooking.message,
-        pickupLocation: updateBooking.pickupLocation,
+        pickupLocation: updatedBooking.pickupLocation,
         dropLocation: updatedBooking.dropLocation,
         status: updatedBooking.status,
         service: updatedBooking.service,
         createdAt: updatedBooking.createdAt,
+      },
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+// delete a booking
+export const deleteBooking = async (req, res, next) => {
+  try {
+    const bookingId = req.params.id;
+
+    const deletedBooking = await bookingModel.findOneAndDelete(
+      { _id: bookingId },
+      { returnDocument: "after" },
+    );
+
+    if (!deletedBooking) {
+      throw new ApiError(404, "No booking found");
+    }
+
+    res.status(200).json({
+      message: "Booking deleted successfully",
+      deletedBooking: {
+        customerName: deletedBooking.customerName,
+        mobileNumber: deletedBooking.mobileNumber,
+        message: deletedBooking.message,
+        pickupLocation: deletedBooking.pickupLocation,
+        dropLocation: deletedBooking.dropLocation,
+        status: deletedBooking.status,
+        service: deletedBooking.service,
+        createdAt: deletedBooking.createdAt,
       },
     });
   } catch (error) {

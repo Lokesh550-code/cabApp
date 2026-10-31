@@ -1,6 +1,7 @@
 import express from "express";
 import {
   createBooking,
+  deleteBooking,
   getBookingController,
   getBookingsController,
   updateBooking,
@@ -21,5 +22,7 @@ bookingRouter.get("/:id", getBookingController);
 bookingRouter.post("/", validate(createBookingSchema, "body"), createBooking);
 
 bookingRouter.patch("/:id", validate(updateBookingSchema), updateBooking);
+
+bookingRouter.delete("/:id", deleteBooking)
 
 export default bookingRouter;
