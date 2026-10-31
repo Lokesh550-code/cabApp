@@ -10,7 +10,7 @@ app.get("/api/health", (req, res) => {
   res.status(200).json({ status: "ok", message: "server is healthy" });
 });
 
-app.use("/api", bookingRouter);
+app.use("/api/booking", bookingRouter);
 
 app.use(errorHandler);
 export default app;
