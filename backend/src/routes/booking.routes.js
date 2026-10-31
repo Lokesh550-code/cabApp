@@ -2,8 +2,8 @@ import express from "express";
 import {
   createBooking,
   deleteBooking,
-  getBookingController,
-  getBookingsController,
+  getBooking,
+  getBookings,
   updateBooking,
 } from "../controllers/booking.controllers.js";
 import validate from "../middlewares/validation.middleware.js";
@@ -16,13 +16,9 @@ import { paginationSchema } from "../validators/pagination.validator.js";
 const bookingRouter = express.Router();
 
 // Only admin can see this, so it will be a protected route, only admin will see them, edit them, or delete them.
-bookingRouter.get(
-  "/",
-  validate(paginationSchema, "query"),
-  getBookingsController,
-);
+bookingRouter.get("/", validate(paginationSchema, "query"), getBookings);
 
-bookingRouter.get("/:id", getBookingController);
+bookingRouter.get("/:id", getBooking);
 
 bookingRouter.post("/", validate(createBookingSchema, "body"), createBooking);
 

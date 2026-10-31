@@ -2,7 +2,7 @@ import ApiError from "../utils/ApiError.js";
 import bookingModel from "../models/bookings.model.js";
 
 // Fetches all bookings
-export const getBookingsController = async (req, res, next) => {
+export const getBookings = async (req, res, next) => {
   try {
     const { page, limit } = req.validated.query;
 
@@ -43,7 +43,7 @@ export const getBookingsController = async (req, res, next) => {
 };
 
 // Fetch a single booking
-export const getBookingController = async (req, res, next) => {
+export const getBooking = async (req, res, next) => {
   try {
     const bookingId = req.params.id;
 
