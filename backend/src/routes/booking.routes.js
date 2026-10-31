@@ -11,11 +11,16 @@ import {
   createBookingSchema,
   updateBookingSchema,
 } from "../validators/booking.validator.js";
+import { paginationSchema } from "../validators/pagination.validator.js";
 
 const bookingRouter = express.Router();
 
 // Only admin can see this, so it will be a protected route, only admin will see them, edit them, or delete them.
-bookingRouter.get("/", getBookingsController);
+bookingRouter.get(
+  "/",
+  validate(paginationSchema, "query"),
+  getBookingsController,
+);
 
 bookingRouter.get("/:id", getBookingController);
 
@@ -23,6 +28,6 @@ bookingRouter.post("/", validate(createBookingSchema, "body"), createBooking);
 
 bookingRouter.patch("/:id", validate(updateBookingSchema), updateBooking);
 
-bookingRouter.delete("/:id", deleteBooking)
+bookingRouter.delete("/:id", deleteBooking);
 
 export default bookingRouter;

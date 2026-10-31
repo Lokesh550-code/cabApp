@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { ObjectId } from "mongoose";
+import { ObjectId } from "mongodb";
 
 export const createBookingSchema = z.strictObject({
   customerName: z.string().trim().min(6),
@@ -15,8 +15,8 @@ export const createBookingSchema = z.strictObject({
     .trim()
     .refine(
       (val) =>
-        ObjecId.isValid(val) &&
-        ObjecId.createFromHexString(val).toString() === val,
+        ObjectId.isValid(val) &&
+        ObjectId.createFromHexString(val).toString() === val,
       { message: "Invalid ObjectId format" },
     ),
 });
@@ -40,8 +40,8 @@ export const updateBookingSchema = z
       .trim()
       .refine(
         (val) =>
-          ObjecId.isValid(val) &&
-          ObjecId.createFromHexString(val).toString() === val,
+          ObjectId.isValid(val) &&
+          ObjectId.createFromHexString(val).toString() === val,
         { message: "Invalid ObjectId format" },
       )
       .optional(),
