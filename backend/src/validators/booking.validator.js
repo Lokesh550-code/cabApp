@@ -1,6 +1,7 @@
-import { strictObject, z } from "zod";
+import { z } from "zod";
+import { ObjecId } from "mongoose";
 
-export const createBookingSchema = strictObject({
+export const createBookingSchema = z.strictObject({
   customerName: z.string().trim().min(6),
   mobileNumber: z
     .coerce()
@@ -12,7 +13,43 @@ export const createBookingSchema = strictObject({
   status: z
     .enum(["confirmed", "rejected", "pending", "completed", "cancelled"])
     .default("pending"),
-  service: z.string().trim(),
+  service: z
+    .string()
+    .trim()
+    .refine(
+      (val) =>
+        ObjecId.isValid(val) &&
+        ObjecId.createFromHexString(val).toString() === val,
+      { message: "Invalid ObjectId format" },
+    ),
 });
 
-export const updateBookingSchema = strictObject({});
+export const updateBookingSchema = z
+  .strictObject({
+    customerName: z.string().trim().min(6).optional(),
+    mobileNumber: z
+      .coerce()
+      .string()
+      .trim()
+      .regex(/^[6-9]\d{9}$/)
+      .optional(),
+    message: z.string().trim().optional(),
+    pickupLocation: z.string().trim().optional(),
+    dropLocation: z.string().trim().optional(),
+    status: z
+      .enum(["confirmed", "rejected", "pending", "completed", "cancelled"])
+      .optional(),
+    service: z
+      .string()
+      .trim()
+      .refine(
+        (val) =>
+          ObjecId.isValid(val) &&
+          ObjecId.createFromHexString(val).toString() === val,
+        { message: "Invalid ObjectId format" },
+      )
+      .optional(),
+  })
+  .refine((data) => Object.keys(data).length < 0, {
+    message: "Enter at least one field to update",
+  });
