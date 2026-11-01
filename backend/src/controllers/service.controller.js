@@ -43,17 +43,35 @@ export const getService = async (req, res, next) => {
       throw new ApiError(404, "No service found");
     }
 
-    res
-      .status(200)
-      .json({
-        message: "Fetched service successfully",
-        success: true,
-        service,
-      });
+    res.status(200).json({
+      message: "Fetched service successfully",
+      success: true,
+      service,
+    });
   } catch (error) {
     next(error);
   }
 };
 export const createServices = async (req, res, next) => {};
 export const updateServices = async (req, res, next) => {};
-export const deleteServices = async (req, res, next) => {};
+export const deleteServices = async (req, res, next) => {
+  try {
+    const serviceId = req.params.id;
+
+    const deletedService = serviceModel.findOneAndDelete({ _id: serviceId });
+
+    if (!deletedService) {
+      throw new ApiError(404, "Service not found");
+    }
+
+    res
+      .status(200)
+      .json({
+        message: "Service deleted successfully",
+        success: true,
+        deletedService,
+      });
+  } catch (error) {
+    next(error);
+  }
+};
