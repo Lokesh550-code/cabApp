@@ -3,8 +3,8 @@ import multer from "multer";
 const errorHandler = (error, req, res, next) => {
   console.log(error);
 
-  let statusCode = error.statusCode || 500;
-  let message = error.message || "Internal server error";
+  let statusCode = 500;
+  let message = "Internal server error";
 
   if (error instanceof multer.MulterError) {
     switch (error.code) {
@@ -26,9 +26,14 @@ const errorHandler = (error, req, res, next) => {
   } else if (error.code === 11000) {
     statusCode = 409;
     message = "Resource already exists";
+  } else if (error.isOperational) {
+    statusCode = error.statusCode;
+    message = error.message;
   }
 
-  res.status(statusCode).json({ success: false, message, errors: error.errors });
+  res
+    .status(statusCode)
+    .json({ success: false, message, errors: error.errors });
 };
 
 export default errorHandler;
