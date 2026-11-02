@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { validate } from "zod";
 
 const serviceSchema = new mongoose.Schema(
   {
@@ -18,12 +19,25 @@ const serviceSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    imageURLs: {
-      type: [String],
-      required: true,
+    images: {
+      type: [
+        {
+          url: {
+            type: string,
+            required: true,
+            trim: true,
+          },
+          public_id: {
+            type: String,
+            required: true,
+          },
+        },
+      ],
       validate: {
-        validator: (images) => images.length >= 1,
-        message: "At least 1 image is required",
+        validator: (image) => {
+          image.length > 1;
+        },
+        message: "At least one image is required",
       },
     },
     features: {

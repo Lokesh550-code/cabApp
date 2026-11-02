@@ -14,7 +14,7 @@ const serviceRouter = express.Router();
 
 serviceRouter.get("/", validate(paginationSchema, "query"), getServices);
 serviceRouter.get("/:id", getService);
-serviceRouter.post("/", upload.single("image"), createServices);
+serviceRouter.post("/", upload.array("image", 5), createServices);
 serviceRouter.patch("/:id", updateServices);
 serviceRouter.delete("/:id", deleteServices);
 
