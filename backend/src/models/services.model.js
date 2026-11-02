@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { validate } from "zod";
 
 const serviceSchema = new mongoose.Schema(
   {
@@ -49,6 +48,8 @@ const serviceSchema = new mongoose.Schema(
     timestamps: true,
   },
 );
+
+serviceSchema.index({ serviceName: 1, vehicleType: 1 }, { unique: true });
 
 const serviceModel = mongoose.model("Service", serviceSchema);
 
