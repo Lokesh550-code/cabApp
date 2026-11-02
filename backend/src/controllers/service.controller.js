@@ -51,8 +51,25 @@ export const getService = async (req, res, next) => {
     next(error);
   }
 };
-export const createServices = async (req, res, next) => {};
+export const createServices = async (req, res, next) => {
+  try {
+    res.status(200).json({
+      message: "File uploaded successfully",
+      success: true,
+      file: {
+        name: req.file.originalname,
+        mimeType: req.file.mimetype,
+        size: req.file.size,
+        buffer: req.file.buffer,
+      },
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const updateServices = async (req, res, next) => {};
+
 export const deleteServices = async (req, res, next) => {
   try {
     const serviceId = req.params.id;
@@ -63,13 +80,11 @@ export const deleteServices = async (req, res, next) => {
       throw new ApiError(404, "Service not found");
     }
 
-    res
-      .status(200)
-      .json({
-        message: "Service deleted successfully",
-        success: true,
-        deletedService,
-      });
+    res.status(200).json({
+      message: "Service deleted successfully",
+      success: true,
+      deletedService,
+    });
   } catch (error) {
     next(error);
   }
