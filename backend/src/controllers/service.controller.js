@@ -1,6 +1,8 @@
 import serviceModel from "../models/services.model.js";
 import ApiError from "../utils/ApiError.js";
 
+import { createService as createServiceRecord } from "../services/service.service.js";
+
 export const getServices = async (req, res, next) => {
   try {
     const { page, limit } = req.validated.query;
@@ -53,15 +55,12 @@ export const getService = async (req, res, next) => {
 };
 export const createServices = async (req, res, next) => {
   try {
-    res.status(200).json({
-      message: "File uploaded successfully",
+    const service = await createServiceRecord(req.body, req.files);
+
+    res.status(201).json({
+      message: "Service created successfully",
       success: true,
-      file: {
-        name: req.file.originalname,
-        mimeType: req.file.mimetype,
-        size: req.file.size,
-        buffer: req.file.buffer,
-      },
+      service,
     });
   } catch (error) {
     next(error);
